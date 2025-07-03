@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #add8e6;">
+    <h2>External JavaScript</h2>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p>This example uses a file path to link to "myScript.js".</p>
+<p id="hide">(myFunction is stored in "myScript.js")</p>
+<button type="button" onclick="hideMe()">Hide Me!</button>
+<button type="button" onclick="showMe()">Reveal Me</button>
+
+<!-- Getting element by ID and changing its content in innerHTML !-->
+<p id="change">JavaScript can change HTML content.</p> 
+<button type="button" onclick="changeText()" on>Change Text</button>
+
+<!-- Changing styles in JS-->
+ <p id="style">JavaScript can change the style of an HTML element.</p>
+<button type="button" onclick="changeFontSize()">Changing Styles</button>
+
+<!-- Output through innerHTML-->
+<p id="output">JavaScript can output HTML content.</p>
+<button type="button" onclick="outputHTML()">Output HTML</button>
+
+<!-- Output to do addition using document.write()  -->
+<button type="button" onclick="calculate()">Register</button>
+
+<script src="myscript.js"></script>
+</body>
+</html>
