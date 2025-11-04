@@ -1,40 +1,33 @@
 
-const quizData = [
-  {
-    question: "What is the capital of France?",
-    options: ["Paris", "London", "Rome", "Berlin"],
-    answer: "Paris"
-  },
-  {
-    question: "Which language is used for web apps?",
-    options: ["Python", "Java", "C++", "JavaScript"],
-    answer: "JavaScript"
-  },
-  {
-    question: "What does HTML stand for?",
-    options: [
-      "HyperText Markup Language",
-      "Hyper Tool Multi Language",
-      "Hyperlink and Text Markup Language",
-      "None of these"
-    ],
-    answer: "HyperText Markup Language"
-  }
-];
+  // Wait until the page is fully loaded
+  document.addEventListener("DOMContentLoaded", () => {
 
-let currentQuestion = 0;
-let score = 0;
+    const cartButton = document.querySelector(".cart");
+    const addToCartButtons = document.querySelectorAll(".product button");
 
-const questionEl = document.getElementById('question');
-const answersEl = document.getElementById('answers');
-const nextBtn = document.getElementById('next-btn');
+    let cartCount = 0; // initial cart count
 
-function loadQuestion() {
-  const currentQuiz = quizData[currentQuestion];
-  questionEl.textContent = currentQuiz.question;
-  answersEl.innerHTML = "";}
+    // Function to update the cart display
+    function updateCart() {
+      cartButton.textContent = `🛒 Cart (${cartCount})`;
+    }
 
-  currentQuiz.options.forEach(option) => {
-    const li = document.createElement('li');
-    const button = document.createElement('button');
-  }
+    // When "Add to Cart" is clicked
+    addToCartButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        cartCount++;
+        updateCart();
+
+        // Show a simple confirmation message
+        alert("✅ Item added to cart!");
+      });
+    });
+
+    // Optional: clicking the cart shows total items
+    cartButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      alert(`🛒 You have ${cartCount} item(s) in your cart.`);
+    });
+
+  });
+
