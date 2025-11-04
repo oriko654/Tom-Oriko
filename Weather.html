@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+
+  <link rel="stylesheet" href="rain.css" />
+</head>
+
+<body>
+
+
+
+  <div class="container">
+    <h1>Weather Dashboard</h1>
+    <Select name="locatin">
+      <option value="Eldoret" selected>Eldoret</option>
+      <option value="Kisumu" selected>Kisumu</option>
+      <option value="Nakuru" selected>Nakuru</option>
+      <option value="Nairobi" selected>Nairobi</option>
+      <option value="Mombasa" selected>Mombasa</option>
+    </Select> <br />
+
+    <button onclick="getWeather()">Search</button>
+
+
+    <div class="weather-info" id="weatherInfo">
+      <h2 id="cityName"></h2>
+      <img id="weatherIcon" src="" alt="Weather Icon">
+      <p class="temp" id="temperature"></p>
+      <p id="description"></p>
+      <p id="humidity"></p>
+    </div>
+  </div>
+
+
+  <script src="rain.js"></script>
+
+
+
+</body>
+
+</html>
