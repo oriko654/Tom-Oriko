@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Typing Speed Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: #f4f7f8;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #target-text {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            line-height: 1.5;
+            border: 1px solid #ddd;
+        }
+
+        #input-area {
+            width: 100%;
+            height: 120px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            resize: none;
+        }
+
+        #input-area.correct {
+            border-color: #28a745;
+        }
+
+        #input-area.incorrect {
+            border-color: #dc3545;
+        }
+
+        #stats {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+        }
+
+        #start-btn {
+            margin: 20px auto;
+            display: block;
+            font-size: 18px;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        #start-btn:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+
+        #highscore {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Typing Speed Test</h1>
+
+    <div id="target-text"></div>
+
+    <textarea id="input-area" placeholder="Start typing here..." disabled></textarea>
+
+    <div id="stats">
+        <div>Time: <span id="time">0</span> s</div>
+        <div>WPM: <span id="wpm">0</span></div>
+    </div>
+
+    <button id="start-btn">Start Test</button>
+
+    <div id="highscore"></div>
+
+    <script>
+        const targetTexts = [
+            "The quick brown fox jumps over the lazy dog.",
+            "Practice makes perfect. Keep typing to improve your speed!",
+            "JavaScript is a versatile language for web development.",
+            "Typing speed tests help enhance your keyboard skills.",
+            "Consistency is key to mastering any skill you choose."
+        ];
+
+        const targetTextEl = document.getElementById('target-text');
+        const inputArea = document.getElementById('input-area');
+        const timeEl = document.getElementById('time');
+        const wpmEl = document.getElementById('wpm');
+        const startBtn = document.getElementById('start-btn');
+        const highscoreEl = document.getElementById('highscore');
+
+        let timer = null;
+        let startTime = null;
+        let elapsedTime = 0;
+        let currentText = "";
+        let finished = false;
+
+        // Load high score from localStorage
+        let highScore = localStorage.getItem('typingHighScore') || 0;
+        updateHighscoreDisplay();
+
+        function updateHighscoreDisplay() {
+            highscoreEl.textContent = highScore > 0 ? `🏆 High Score: ${highScore} WPM` : '';
+        }
+
+        function pickRandomText() {
+            return targetTexts[Math.floor(Math.random() * targetTexts.length)];
+        }
+
+        function startTest() {
+            finished = false;
+            elapsedTime = 0;
+            timeEl.textContent = '0';
+            wpmEl.textContent = '0';
+            currentText = pickRandomText();
+            targetTextEl.textContent = currentText;
+            inputArea.value = '';
+            inputArea.disabled = false;
+            inputArea.classList.remove('correct', 'incorrect');
+            inputArea.focus();
+            startTime = Date.now();
+
+            if (timer) clearInterval(timer);
+            timer = setInterval(updateTimer, 100);
+
+            startBtn.disabled = true;
+        }
+
+        function updateTimer() {
+            elapsedTime = (Date.now() - startTime) / 1000;
+            timeEl.textContent = elapsedTime.toFixed(1);
+
+            const wordsTyped = countWords(inputArea.value);
+            const wpm = elapsedTime > 0 ? Math.round((wordsTyped / elapsedTime) * 60) : 0;
+            wpmEl.textContent = wpm;
+
+            // If user finished typing the text exactly
+            if (inputArea.value === currentText) {
+                finishTest(wpm);
+            }
+        }
+
+        function countWords(str) {
+            return str.trim().split(/\s+/).filter(Boolean).length;
+        }
+
+        function finishTest(wpm) {
+            finished = true;
+            clearInterval(timer);
+            inputArea.disabled = true;
+            startBtn.disabled = false;
+
+            if (wpm > highScore) {
+                highScore = wpm;
+                localStorage.setItem('typingHighScore', highScore);
+                updateHighscoreDisplay();
+                alert(`🎉 New high score: ${wpm} WPM!`);
+            } else {
+                alert(`Test finished! Your WPM: ${wpm}`);
+            }
+        }
+
+        function checkInput() {
+            if (finished) return;
+
+            const textEntered = inputArea.value;
+            if (currentText.startsWith(textEntered)) {
+                inputArea.classList.add('correct');
+                inputArea.classList.remove('incorrect');
+            } else {
+                inputArea.classList.add('incorrect');
+                inputArea.classList.remove('correct');
+            }
+        }
+
+        inputArea.addEventListener('input', checkInput);
+        startBtn.addEventListener('click', startTest);
+    </script>
+
+</body>
+
+</html>
