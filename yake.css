@@ -1,0 +1,72 @@
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  padding: 20px;
+}
+
+/* Heading */
+#heading {
+  text-align: center;
+  color: #006699;
+  margin-bottom: 20px;
+}
+
+/* Form Container */
+form {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Labels */
+form label {
+  font-weight: bold;
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+/* Inputs, Select, Textarea */
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+  width: 60%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Radio Buttons */
+form input[type="radio"] {
+  margin: 0 5px;
+}
+
+/* Submit Button */
+form button {
+  display: block;
+  width: 100%;
+  background: #006699;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #004d66;
+}
+
+/* Font Awesome Icon */
+.fa-paper-plane {
+  margin-right: 6px;
+}
