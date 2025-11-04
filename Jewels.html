@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./Ets.webp" type="image/x-icon ">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/v4-shims.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/v4-shims.min.css">
+  <title>FutureTech Solutions</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #72c8dd;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      background:url();
+    }
+
+    nav {
+      background: #34495e;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      color: rgb(94, 99, 109);
+    }
+
+    .card {
+      background: rgb(22, 56, 148);
+      padding: 20px;
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    input, textarea {
+      width: 300px;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #272829;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #3c3b3d;
+      color: rgb(17, 114, 93);
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #178a6d;
+    }
+    img {
+      width: 15%;
+      height: 10%;
+      border-radius: 8px;
+      position:relative;
+      left: 10px;
+    }
+
+    .circular-image
+    {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .card img{
+      width: 45%;
+      height: 45%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .location {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      color: rgb(0, 0, 0);
+    }
+    .where {
+      background: rgb(170, 61, 106);
+      padding: 20px;
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    i {
+      color: rgb(105, 9, 9);
+      font-size: 20px;
+      margin-right: 5px;
+
+    }
+    .social-media i {
+      text-align: center;
+      margin-top: 20px;
+      display: flexbox;
+      justify-content: center;
+      position: relative;
+      left: 10px;
+      font-size: 30px;
+      font-size: 24px;
+      color: #fff;
+    }
+    .authentication {
+      background: #5cb85c;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .circular-image {
+      position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid;
+            padding: 3px;
+            background-image: url('eagle2.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            z-index: 1000;
+    }
+    .header-video {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 0px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="circular-image">
+    </div>
+    <div class="eagle-tech">
+      <h1>EagleTech Solutions</h1>
+      <p>Innovating the Future, Today</p>
+      <video controls autoplay muted loop class="header-video ">
+        <source src="large.mp4" type="video/mp4">
+      </video>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About us</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact us</a>
+    <a href="./authenticate/register.html" class="authentication">Signup</a>
+    <a href="./authenticate/login.html" class="authentication">Login</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a tech-forward company providing innovative solutions in web, mobile and computer Development.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+
+    <div class="services">
+      <div class="card">
+        <h3>Web Development</h3>
+        <img src="Web-Development-PNG-Picture.png">
+        <p>Responsive websites tailored to your business.</p>
+      </div>
+      <div class="card">
+        <h3>Mobile Apps</h3>
+        <img src="social-media-5976707_1280.jpg">
+        <p>Powerful Android & iOS apps.</p>
+      </div>
+      <div class="card">
+        <h3>AI Solutions</h3>
+        <img src="media_12dc82dd2d8f15f8589a12d9b7e5a1e6272c84bf5.webp">
+        <p>Smart systems using machine learning.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Info</h2>
+  <!-- Contact information  -->
+   <div class="location">
+    <div class="where">
+      <h3>Location</h3>
+      <p><i class="fa fa-map-marker" aria-hidden="true"></i>
+ Kitengela Town<br> ReadyT Tower,Opposite OBC Mall. <br> Nairobi - Namanga Road </p>
+    </div>
+    <div class="where">
+      <h3>Addresses</h3>
+      <p> <i class="fa fa-address-book" aria-hidden="true"></i>
+P.O. BOX 425 - 010011, <br> KITENGELA </p>
+    </div>
+    <div class="where">
+      <h3>Contacts</h3>
+      <p><i class="fa fa-phone" aria-hidden="true"></i>
+ +254 745 692 154<br><i class="fa fa-envelope-o" aria-hidden="true"></i>
+ Email: info@eagletech.com</p>
+    </div>
+   </div>
+   <div class="social-media">
+    <h3>Get in Touch</h3>
+    <a href= "https://www.facebook.com/tom.oriko.58"><i class="fab fa-facebook"></i></a><br />
+      <a href="https://www.instagram.com/tomastommy654/"><i class="fab fa-instagram"></i></a><br />
+      <a href="https://x.com/tom_oriko"><i class="fab fa-twitter"></i></a><br />
+   </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FutureTech Solutions. All rights reserved.</p>
+  </footer>
+
+  <!-- Internal JavaScript -->
+  <script>
+    function submitForm() {
+      let name = document.getElementById('name').value.trim();
+      let email = document.getElementById('email').value.trim();
+      let message = document.getElementById('message').value.trim();
+
+      if (name === '' || email === '' || message === '') {
+        alert("Please fill in all fields! 🔒");
+      } else {
+        alert("Message sent successfully! 🚀 We'll get back to you.");
+        // Reset form
+        document.getElementById('contactForm').reset();
+      }
+    }
+      
+    
+  </script>
+
+</body>
+</html>
