@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #00ffcc;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .clock {
+            font-size: 60px;
+            padding: 20px 40px;
+            border: 5px solid #00ffcc;
+            border-radius: 10px;
+            background: #222;
+            box-shadow: 0 0 20px #00ffcc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="clock" id="clock">Loading...</div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+
+            let hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            // Convert 24hr to 12hr format
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+
+            // Pad with zeroes
+            const paddedHours = String(hours).padStart(2, '0');
+            const paddedMinutes = String(minutes).padStart(2, '0');
+            const paddedSeconds = String(seconds).padStart(2, '0');
+
+            const timeString = `${paddedHours}:${paddedMinutes}:${paddedSeconds} ${ampm}`;
+
+            document.getElementById("clock").textContent = timeString;
+        }
+
+        // Initial call
+        updateClock();
+
+        // Update every second
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
+
+</html>
